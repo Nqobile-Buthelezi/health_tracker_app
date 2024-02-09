@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VitaPulse{% endblock %}</title>
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <section id="header" class="wrapper">
+            <!-- Logo and Navigation -->
+            <div id="logo">
+                <h1><a href="index.html">VitaPulse</a></h1>
+                <p>A health tracker app for a vibrant life</p>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="#">Features</a>
+                        <ul>
+                            <li><a href="/exercise_tracking">Exercise Tracking</a></li>
+                            <li><a href="#">Calorie Intake Monitoring</a></li>
+                            <li><a href="#">Sleep Patterns Recording</a></li>
+                            <li><a href="#">Insights and Recommendations</a></li>
+                            <li><a href="#">User Authentication</a></li>
+                            <li><a href="#">Data Visualization</a></li>
+                            <li><a href="#">Reminders and Notifications</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Main content -->
+        {% block content %}{% endblock %}
+
+        <!-- Footer -->
+        <section id="footer" class="wrapper">
+            <div class="title">Connect with Us</div>
+            <div class="container">
+                <header class="style1">
+                    <h2>Stay in touch for updates and support</h2>
+                    <p>Follow us on social media and subscribe to our newsletter.</p>
+                </header>
+                <div class="row">
+                    <div class="col-6 col-12-medium">
+                        <section class="feature-list small">
+                            <div class="row">
+                                <div class="col-12">
+                                    <section>
+                                        <h3 class="icon solid fa-envelope">Newsletter</h3>
+                                        <p>Subscribe to our newsletter for the latest updates and health tips.</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-6 col-12-medium">
+                        <section class="feature-list small">
+                            <div class="row">
+                                <div class="col-12">
+                                    <section>
+                                        <h3 class="icon brands fa-twitter">Twitter</h3>
+                                        <p>Follow us on Twitter for news and announcements.</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div id="copyright">
+                    <ul>
+                        <li>&copy; VitaPulse.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Scripts -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.dropotron.min.js"></script>
+    <script src="static/js/browser.min.js"></script>
+    <script src="static/js/breakpoints.min.js"></script>
+    <script src="static/js/util.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>
