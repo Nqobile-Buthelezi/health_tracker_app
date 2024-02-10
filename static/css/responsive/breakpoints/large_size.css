@@ -1,0 +1,63 @@
+/* Large */
+
+	@media screen and (max-width: 1280px) {
+
+		/* Basic */
+
+			body, input, select, textarea {
+				font-size: 11pt;
+				line-height: 1.5em;
+				letter-spacing: 0.015em;
+			}
+
+		/* Wrapper */
+
+			.wrapper {
+				padding: 4em 0 7em 0;
+			}
+
+		/* Logo */
+
+			#logo {
+				margin-top: -0.5em !important;
+			}
+
+				#logo h1 {
+					font-size: 1.75em;
+				}
+
+		/* Intro */
+
+			#intro {
+				padding-bottom: 7em;
+			}
+
+				#intro p.style1 {
+					font-size: 1.25em;
+				}
+
+				#intro p.style2 {
+					font-size: 2.25em;
+				}
+
+		/* Footer */
+
+			#footer {
+				padding-bottom: 4em;
+			}
+
+				#footer header.style1 {
+					padding-bottom: 4em;
+					margin-bottom: 4em;
+					border-bottom: solid 1px rgba(255, 255, 255, 0.05);
+				}
+
+		/* Copyright */
+
+			#copyright {
+				padding-top: 4em;
+				margin-top: 4em;
+			}
+
+	}
+

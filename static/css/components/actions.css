@@ -1,0 +1,25 @@
+/* Actions */
+
+	ul.actions {
+		list-style: none;
+		padding-left: 0;
+		margin: 3em 0 0 0;
+	}
+
+		ul.actions li {
+			display: inline-block;
+			margin: 0 0.75em 0 0.75em;
+			padding-left: 0;
+		}
+
+			ul.actions li:first-child {
+				margin-left: 0;
+			}
+
+			ul.actions li:last-child {
+				margin-right: 0;
+			}
+
+		ul.actions.special {
+			text-align: center;
+		}
