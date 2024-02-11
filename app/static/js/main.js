@@ -58,3 +58,18 @@
 				});
 
 })(jQuery);
+
+function smoothScroll(event) {
+    event.preventDefault(); // Prevent default anchor behavior
+
+    const targetId = event.currentTarget.getAttribute("href"); // Get the href attribute value
+    const targetElement = document.querySelector(targetId); // Get the target element by its ID
+
+    // Scroll smoothly to the target element
+    if (targetElement) {
+        targetElement.scrollIntoView({
+            behavior: "smooth", // Use smooth scrolling behavior
+            block: "start" // Align the top of the target element with the top of the viewport
+        });
+    }
+}

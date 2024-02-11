@@ -1,0 +1,17 @@
+{% extends "base_auth.html" %}
+
+{% block title %}Sign Up - VitaPulse{% endblock %}
+
+{% block heading %}Join VitaPulse today{% endblock %}
+
+{% block content %}
+<form action="/signup" method="post">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" value="Sign Up">
+</form>
+{% endblock %}
