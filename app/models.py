@@ -12,7 +12,7 @@ class User(db.Model):
         password (str): The user's password (max 60 characters).
     """
 
-    __tablename__ = 'user'
+    __tablename__ = "user"
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)

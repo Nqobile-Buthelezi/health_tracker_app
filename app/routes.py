@@ -59,11 +59,21 @@ def sign_up():
     """ Handles sign-up logic using Flask WTForms. GET shows the form, POST does the database and collecting work. """
     form = SignupForm()
     if form.validate_on_submit():  # Handles validation
-        # Hash and Slat for encryption purposes
+        # Hash and Salt for encryption purposes
         hashed_password = bcrypt.hashpw(form.password.data.encode('utf-8'), bcrypt.gensalt())
 
         # Let's make a new User & fill it with their info
-        new_user = User(username=form.username.data, email=form.email, password=hashed_password)
+        new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+
+        existing_user = User.query.filter_by(email=form.email.data).first()
+        if existing_user:
+            error = "A user with that email already exists. Please try again."
+            return render_template("auth/signup.html", form=form, error=error)
+
+        existing_username = User.query.filter_by(username=form.username.data).first()
+        if existing_username:
+            error = "That username is taken. Please choose another."
+            return render_template("auth/signup.html", form=form, error=error)
 
         # Add the new user into the database using SQLAlchemy.
         db.session.add(new_user)
@@ -91,6 +101,9 @@ def login():
         else:
             # Failed login: display an error message
             return render_template("auth/login.html", form=form, error="Invalid credentials")
+
+    # If they just visited the page, this renders the login form
+    return render_template("auth/login.html", form=form)
 
 
 # Render simple html pages section

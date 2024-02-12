@@ -5,7 +5,9 @@
 {% block heading %}Welcome Back!{% endblock %}
 
 {% block content %}
+{% if error %}  <div class="error-message">{{ error }}</div>  {% endif %}
 <form action="/login" method="post">
+    {{ form.csrf_token }}
     <label for="username">Username:</label><br>
     <input type="text" id="username" name="username"><br>
     <label for="password">Password:</label><br>

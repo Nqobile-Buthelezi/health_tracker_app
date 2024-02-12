@@ -16,6 +16,9 @@ load_dotenv()  # Looks for a .env file and loads the information
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
 # Ensure we get no warnings about SQLAlchemy updates
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# Setting up secret key to protect against CSRF attacks
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+
 
 #  Connect SQLAlchemy to our app
 db = SQLAlchemy(app)
