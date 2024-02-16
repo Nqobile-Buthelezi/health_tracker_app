@@ -3,25 +3,36 @@ from flask import Flask
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 
-
-# Make the app
+# -----------------------------------------
+# App Creation (Consider a factory function create_app() for flexibility in larger projects)
+# -----------------------------------------
 app = Flask(__name__)
 
-# Load up .env data
-load_dotenv()  # Looks for a .env file and loads the information
-
-# Set up our database...
-
-# How to connect (user, password, etc.)
+# -----------------------------------------
+# Configuration
+# -----------------------------------------
+load_dotenv()
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
-# Ensure we get no warnings about SQLAlchemy updates
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-# Setting up secret key to protect against CSRF attacks
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
-
-#  Connect SQLAlchemy to our app
+# -----------------------------------------
+#  Database Initialisation
+# -----------------------------------------
 db = SQLAlchemy(app)
 
-# We need routes, but need to import routes after to avoid circular import problems...
-from app import routes  # Load routing logic (endpoints, and logic)
+# -----------------------------------------
+# Import Models (After app and db are initialised)
+# -----------------------------------------
+from app.user_model import User
+
+# -----------------------------------------
+# Blueprint Registration
+# -----------------------------------------
+from app.auth import auth_bp
+app.register_blueprint(auth_bp)
+
+# -----------------------------------------
+# Import Routes (At the end to avoid circular dependencies)
+# -----------------------------------------
+from app import routes
