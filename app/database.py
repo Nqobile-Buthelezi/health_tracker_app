@@ -1,5 +1,5 @@
 import click
-from app import db, User
+from app import app, db, User
 
 
 # Command to view data from the database
@@ -7,7 +7,7 @@ from app import db, User
 def view_db():
     """Fetches and displays data from the database."""
     try:
-        with db.app.app_context():
+        with app.app_context():
             all_users = User.query.all()
             if all_users:
                 for user in all_users:
@@ -28,7 +28,7 @@ def purge_db(confirm):
         return
 
     try:
-        with db.app.app_context():
+        with app.app_context():
             db.reflect()  # Required to reflect tables from app metadata
             for table in reversed(db.metadata.sorted_tables):
                 db.session.execute(table.delete())
