@@ -5,7 +5,7 @@ from app.login_form import LoginForm
 from app.user_model import User
 import bcrypt
 
-auth_bp = Blueprint("auth", __name__)
+auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 
 @auth_bp.route("/signup", methods=["GET", "POST"])

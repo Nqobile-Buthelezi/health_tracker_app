@@ -1,3 +1,4 @@
+import os
 import bcrypt
 from app import db
 
@@ -13,7 +14,11 @@ class User(db.Model):
         password_hash (str): The user's password (max 60 characters).
     """
 
-    __tablename__ = "user"
+    # Determine the table name based on the environment or configuration
+    if os.getenv("ENVIRONMENT") == "test":
+        __tablename__ = "test_users"
+    else:
+        __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
@@ -29,4 +34,3 @@ class User(db.Model):
 
     def check_password(self, password):
         return bcrypt.checkpw(password.encode('utf-8'), self.password_hash.encode('utf-8'))
-
