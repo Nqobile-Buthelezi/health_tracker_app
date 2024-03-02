@@ -17,6 +17,11 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 # -----------------------------------------
+# Secret key for session attribute
+# -----------------------------------------
+app.secret_key = os.getenv("SESSION_KEY")
+
+# -----------------------------------------
 #  Database Initialisation
 # -----------------------------------------
 db = SQLAlchemy(app)
@@ -29,10 +34,14 @@ from app.user_model import User
 # -----------------------------------------
 # Blueprint Registration
 # -----------------------------------------
-from app.auth import auth_bp
+from app.auth import authentication_blueprint as auth_bp
 app.register_blueprint(auth_bp)
+
+# blueprint for non-auth parts of app
+from app.main import main_blueprint as main_bp
+app.register_blueprint(main_bp)
 
 # -----------------------------------------
 # Import Routes (At the end to avoid circular dependencies)
 # -----------------------------------------
-from app import routes
+# from app import main

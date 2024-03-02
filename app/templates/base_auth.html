@@ -4,34 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}VitaPulse{% endblock %}</title>
-    <link rel="stylesheet" href="static/css/base/basic.css">
-    <link rel="stylesheet" href="static/css/base/fontawesome-all.min.css">
-    <link rel="stylesheet" href="static/css/base/global.css">
-    <link rel="stylesheet" href="static/css/components/actions.css">
-    <link rel="stylesheet" href="static/css/components/button.css">
-    <link rel="stylesheet" href="static/css/components/form.css">
-    <link rel="stylesheet" href="static/css/components/navbar.css">
-    <link rel="stylesheet" href="static/css/layout/container.css">
-    <link rel="stylesheet" href="static/css/layout/footer.css">
-    <link rel="stylesheet" href="static/css/layout/header.css">
-    <link rel="stylesheet" href="static/css/layout/logo.css">
-    <link rel="stylesheet" href="static/css/layout/wrapper.css">
-    <link rel="stylesheet" href="static/css/modules/feature_list.css">
-    <link rel="stylesheet" href="static/css/modules/features.css">
-    <link rel="stylesheet" href="static/css/modules/highlights.css">
-    <link rel="stylesheet" href="static/css/modules/icons.css">
-    <link rel="stylesheet" href="static/css/modules/image.css">
-    <link rel="stylesheet" href="static/css/modules/intro.css">
-    <link rel="stylesheet" href="static/css/modules/section.css">
-    <link rel="stylesheet" href="static/css/responsive/breakpoints/extra_large_size.css">
-    <link rel="stylesheet" href="static/css/responsive/breakpoints/large_size.css">
-    <link rel="stylesheet" href="static/css/responsive/breakpoints/medium_size.css">
-    <link rel="stylesheet" href="static/css/responsive/breakpoints/small_size.css">
-    <link rel="stylesheet" href="static/css/utils/box.css">
-    <link rel="stylesheet" href="static/css/utils/copyright.css">
-    <link rel="stylesheet" href="static/css/utils/list.css">
-    <link rel="stylesheet" href="static/css/utils/row.css">
-    <link rel="stylesheet" href="static/css/utils/table.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/basic.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/actions.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout/container.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout/logo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout/wrapper.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modules/feature_list.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modules/features.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modules/highlights.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modules/icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modules/image.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modules/intro.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modules/section.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive/breakpoints/extra_large_size.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive/breakpoints/large_size.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive/breakpoints/medium_size.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive/breakpoints/small_size.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/utils/box.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/utils/copyright.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/utils/list.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/utils/row.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/utils/table.css') }}">
 </head>
 <body>
     <div id="page-wrapper">
@@ -58,11 +58,11 @@
     </div>
 
     <!-- Scripts -->
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/jquery.dropotron.min.js"></script>
-    <script src="static/js/browser.min.js"></script>
-    <script src="static/js/breakpoints.min.js"></script>
-    <script src="static/js/util.js"></script>
-    <script src="static/js/main.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

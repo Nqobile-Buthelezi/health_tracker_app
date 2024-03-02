@@ -1,9 +1,11 @@
-from flask import render_template
-from app import app
+from flask import render_template, Blueprint
+
+
+main_blueprint = Blueprint("main", __name__)
 
 
 # Define routes and views – this is where the rendering and redirecting happens for our users
-@app.route("/")
+@main_blueprint.route("/")
 def index():
     """ This renders the homepage, to keep the home route simple. """
     # Loads up our base template as a defining structure along with our index.html
@@ -11,21 +13,21 @@ def index():
 
 
 # Render simple html pages section
-@app.route("/exercise_tracking")
+@main_blueprint.route("/exercise_tracking")
 def exercise_tracking():
     return render_template("features/exercise_tracking.html")
 
 
-@app.route("/download")
+@main_blueprint.route("/download")
 def download():
     return render_template("download.html")
 
 
-@app.route("/about")
+@main_blueprint.route("/about")
 def about():
     return render_template("about.html")
 
 
-@app.route("/contact")
+@main_blueprint.route("/contact")
 def contact():
     return render_template("contact.html")

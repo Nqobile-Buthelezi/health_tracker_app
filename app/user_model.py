@@ -1,6 +1,10 @@
 import os
+from datetime import datetime
+
 import bcrypt
+
 from app import db
+from sqlalchemy import func
 
 
 class User(db.Model):
@@ -21,9 +25,18 @@ class User(db.Model):
         __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), unique=True, nullable=False)
+    username = db.Column(db.String(25), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
+    last_login = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __init__(self, username, email, password):
+        self.validate_username_length(username)
+        self.validate_email_format(email)
+        self.is_unique_email(email)
+        self.username = username
+        self.email = email
+        self.set_password(password)
 
     def __repr__(self):
         """Provides a developer-friendly string representation of a User object."""
@@ -33,4 +46,24 @@ class User(db.Model):
         self.password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
     def check_password(self, password):
-        return bcrypt.checkpw(password.encode('utf-8'), self.password_hash.encode('utf-8'))
+        return bcrypt.checkpw(password.encode('utf-8'), self.password_hash)
+
+    # Custom validation
+    @staticmethod
+    def validate_username_length(username):
+        """Validates the length of the username."""
+        if len(username) > 25:
+            raise ValueError("Username must be at most 20 characters long")
+
+    @staticmethod
+    def validate_email_format(email):
+        """Validates the email formate."""
+        if "@" not in email or "." not in email:
+            raise ValueError("Invalid email format.")
+
+    @staticmethod
+    def is_unique_email(email):
+        """Check if the email address is unique."""
+        return db.session.query(func.count(User.id)).filter_by(email=email).scalar() == 0
+
+
